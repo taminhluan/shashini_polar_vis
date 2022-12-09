@@ -14,7 +14,6 @@ from vtkmodules.vtkCommonDataModel import (
 )
 from read_shashini_file import read_data
 import sys
-import math
 from colour import Color
 
 input_filename = sys.argv[1]
@@ -68,22 +67,14 @@ def make_polygons_actor(p1, p2, p3, p4, color):
 
 axes = vtkAxesActor()
 
-
-
-
 # Create a renderer and add actor to it
 renderer = vtkRenderer()
 renderer.SetBackground(0.0, 0.0, 0.0)
-
-
-
 
 def get_color(number, min_value, max_value):
     try:
         index_f = (number - min_value) / (max_value - min_value)
         index = int(index_f * 100)
-
-    
         color = colors[index]
         return ( color.get_red() , color.get_green() , color.get_blue())
     except:
