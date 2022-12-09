@@ -17,6 +17,8 @@ import sys
 
 input_filename = sys.argv[1]
 data = read_data(input_filename)
+max_value = 350
+min_value = 0
 if input_filename == 'winter.csv':
     threshold = 50
 else:
@@ -69,8 +71,7 @@ axes = vtkAxesActor()
 renderer = vtkRenderer()
 renderer.SetBackground(0.0, 0.0, 0.0)
 
-max_value = 350
-min_value = 0
+
 
 import math
 from colour import Color
