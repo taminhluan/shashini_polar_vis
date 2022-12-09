@@ -14,11 +14,15 @@ from vtkmodules.vtkCommonDataModel import (
 )
 from read_shashini_file import read_data
 import sys
+import math
+from colour import Color
 
 input_filename = sys.argv[1]
 data = read_data(input_filename)
 max_value = 350
 min_value = 0
+colors = list(  Color("red").range_to(Color("blue"), 100))
+
 if input_filename == 'winter.csv':
     threshold = 50
 else:
@@ -73,9 +77,7 @@ renderer.SetBackground(0.0, 0.0, 0.0)
 
 
 
-import math
-from colour import Color
-colors = list(  Color("red").range_to(Color("blue"), 100))
+
 def get_color(number, min_value, max_value):
     try:
         index_f = (number - min_value) / (max_value - min_value)
